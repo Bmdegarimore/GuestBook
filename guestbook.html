@@ -1,0 +1,40 @@
+<head>
+  <title>GuestBook</title>
+</head>
+
+<body>
+  <h1>Welcome to Brandon's GuestBook!</h1>
+
+  {{>guestBook}}
+
+</body>
+
+<template name="guestBook">
+	<div class='col-xs-3'>
+
+	<form>
+  		<div class="form-group">
+  			<label for="guestName">Name</label>
+  			<input type="text" class="form-control" name="guestName" />
+  		</div>
+
+  		<div class="form-group">
+  			<label for="guestBookMessage">Message</label>
+  			<textarea name="guestBookMessage" cols="30" class="form-control"></textarea>
+  		</div>
+
+  		<button type="submit" class="btn btn-primary">Post Message</button>
+  </form>
+  <br>
+  <br>
+  {{#each messages}}
+  	<p><strong>{{ name }}</strong> {{ message }} - {{ createdOn }}</p>
+  {{/each}}
+
+	</div>
+</template>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
